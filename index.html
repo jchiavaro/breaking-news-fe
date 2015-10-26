@@ -1,0 +1,31 @@
+<html ng-app="breakingNews">
+  <head>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="lib/bootstrap-3.3.5-dist/css/carousel.css"/>
+    <script src="lib/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="lib/ui-bootstrap.min.js"></script>
+    <script src="lib/ui-bootstrap-tpls.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body ng-controller="NewsController">
+    <div ng-init="news.length > 0">
+      <carousel interval="5000" no-wrap="false">
+        <slide ng-repeat="n in news">
+          <img ng-src="{{n.img}}" style="margin:auto;height:auto;width:auto;">
+          <div class="carousel-caption">
+            <h4>{{n.title}} from {{n.source}}</h4>
+            <p>{{n.summary}}</p>
+            <a href="{{n.url}}">View More</a>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+    <div class="row">
+      <div class="col-lg-2 col-sm-6" ng-repeat="n in news">
+            <h4>{{n.title}}</h4>
+            <a href="{{n.url}}">View More</a>
+      </div>
+    </div>
+  </body>
+</html>
